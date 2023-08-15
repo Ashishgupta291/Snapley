@@ -1,0 +1,154 @@
+<!-- ____________________javascript_________________ --> 
+<!-- p5.js -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script> 
+<!-- ml5js -->
+<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+<!-- loading sketch.js--> 
+<script src="https://cdn.jsdelivr.net/npm/gif.js/dist/gif.js"></script>
+<script src='sketch.js'></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Funglasses">
+    <meta property="og:site_name" content="Funglasses" >
+    <meta property="og:url" content="https://ashishgupta291.github.io/Funglasses/">
+    <meta property="og:description" content="Developed by Ashish Gupta">
+    <meta property="og:type" content=website>
+    <meta property="og:image" content="https://i.ibb.co/6BTjX3C/icon.png">
+    <title>Funglasses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://i.ibb.co/6BTjX3C/icon.png">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        *{   
+            margin: 0;
+            padding: 0;
+            color: azure;           
+         }        
+        body{
+            overflow-x: hidden !important;
+            color: azure;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+            height: 100vh;
+            margin: 0; 
+            background-color: rgb(7, 5, 5);
+        } 
+        canvas{
+          margin: 0 !important;
+          border-radius: 15px !important;
+          margin-bottom: 10px !important;
+       }
+       .buttonbox{
+        width: 100%;
+        display: flex;
+        justify-content:center;
+       }
+       .flip , .clicktopic ,.dummybutton{
+        color: red;
+        background-color: azure;
+        width:60px;
+        height: 60px;
+        border-radius: 30px;
+        border: 1.5px solid red;
+        transition: background-color 0.7s ease;
+        margin-bottom: 20px;
+       }
+       .dummybutton:enabled:hover{
+        background-color: rgb(255, 196, 0) !important;
+       }
+       .clicktopic:hover{
+        background-color: rgb(255, 196, 0);
+       }
+       .flip:hover{
+        background-color: rgb(255, 196, 0);
+       }
+       .linkedin{
+        border: 1px solid white ;
+        border-radius: 5px;
+        padding: 3px;
+       }
+       #linkedinlogo{
+        border-radius: 2px;
+        padding: 2.5px;
+        background-color: rgb(56, 56, 241);
+       }
+       #rotatecamlogo , #downloadlogo{
+        color:rgb(42, 97, 165);
+        font-size: 25px;
+       }
+       @media screen and (max-width: 470px) { canvas{ border-radius: 0px !important; margin-bottom: 20px !important; }}
+
+::-webkit-scrollbar{
+    width: 10px;
+  }
+  .cccc{
+    height: 55px;
+    width:100%;
+  }
+  .ccc{ 
+    height: 55px;
+    width:100%;
+  }
+  .scroll-container {
+    height: 55px;
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+.scroll-content {
+  margin-left: 50%;
+  margin-right: 50%;
+  display: inline-block;
+}
+
+.option {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+}
+.selected {
+  text-decoration: underline;
+  color: rgb(150, 241, 241);
+}
+.preloading{
+  background: #1e1d1d url("eyes/preloader.gif") no-repeat center;
+  height:100vh ;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+    </style>
+    <script>
+      window.addEventListener('load', () => {
+        document.querySelector('.preloading').style.display="none";
+        document.querySelector('.container').style.display="block";
+        document.getElementById("greet").style.display="block";
+        });
+
+    </script>
+</head>
+<body >
+  <div class="preloading"></div>
+<div class="container" style="display: none;">
+    <h1 id="choose">Slide to Change Filter</h1>
+    <div>
+      <input class="tint" type="range" min="0" max="255" value="200">
+      <input class="tint" type="range" min="0" max="255" value="200">
+      <input class="tint" type="range" min="0" max="255" value="200">
+    </div>
+<hr>
+</div>
+<h2 id="greet" style="display: none;">Finding...</h2>
+</body>
+</html>
